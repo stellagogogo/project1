@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 公共样式  common style */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* 水平居中 */
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+/* 清除浮动 */
+.clear{
+    clear: both;
+}
+
+/* 高度塌陷 */
+.clearboth::after {
+    content: '';
+    clear: both;
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+
+/* 弹性布局 */
+.flexbox {
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+/* 标题文本 */
+.column-title{
+    margin: 40px 0;
+}
+
+/* 主标题 */
+.column-title h2{
+    text-align: center;
+}
+
+
+/* 副标题  */
+.column-title h3{
+    padding-left: 10px;
+    border-left: 8px solid #0281E8;
+    text-align: left;
+}
+
+/* 区域文本默认设置 */
+.column-text p{
+    text-indent: 2em;
+    line-height: 30px;
+}
+
+/* 区域图片默认修改  */
+.column-img{
+    overflow: hidden;
+}
+
+.column-img img{
+    vertical-align: top;
+}
+
+/* 当前导航 */
+.current-nav{
+    color: #fff !important;
+    font-size: 18px !important;
+    background-color: #aad9fd;
+}
+
+/* header  */
+#header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.087);
+}
+
+/* 顶部 */
+.top{
+    background-color: #aad9fd;
+}
+
+.loginbar li{
+    float: right;
+    height: 35px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 35px;
+}
+
+.loginbar li:first-child{
+    float: left;
+    font-weight: 900;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.loginbar li:first-child span{
+    color: #ffee34;
+}
+
+.loginbar li a:hover{
+    text-decoration: underline;
+}
+
+.loginbar li:first-child a:hover{
+    text-decoration: none;
+}
+
+/* banner start */
+.banner-wrapper {
+    height: 370px;
+    color: lightblue;
+    background: url(../images/背景.jpg) no-repeat center/cover;
+}
+.lunbo{
+         	width: 100%;
+         	height: 500px;
+         	margin:0px auto;
+         }
+         .lunbo img{
+         	width: 100%;
+         	height:100%;
+         }
+.child-banner{
+    height: 400px;
+    background: url(../images/背景2.jpg) no-repeat center/cover;
+}
+.child-banner1{
+    height: 400px;
+    background: url(../images/背景1.jpg) no-repeat center/cover;
+}
+.banner2-wrapper {
+    height: 500px;
+    color: lightblue;
+    background: url(../images/背景3.png) no-repeat center/cover;
+}
+
+/* 导航区 */
+.nav {
+    background-color: white;
+}
+
+.nav li{
+    width: 14.2%;
+    height: 60px;
+    float: left;
+    text-align: center;
+	font-family: "苹方";
+}
+
+.nav li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.nav li a:hover {
+   text-decoration:none;
+   color: #fff;
+   background-color:#aad9fd;
+}
+
+/* 底部版权声明 */
+.copyright {
+    height: 60px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 60px;
+    background-color:#aad9fd;
+    color: #fff;
+}
+
+/* 首页 */
+.column-one-content{
+    color: #fff;
+    background-color: #57E0FF;
+    background: url(../images/背景5.png);
+    background-attachment: fixed;
+}
+
+.cilumn-one-img img{
+    width: 100%;
+}
+
+.column-one-text{
+    padding: 20px 40px;
+}
+.column-one-text p{
+   font-size: 18px;
+   font-family: "苹方";
+}
+
+.column-two{
+    height: 250px;
+}
+
+.column-two-card{
+    width: 15%;
+    height: 180px;
+    margin-right: 24px;
+    text-align: center;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.153);
+    transition: all .3s linear;
+}
+
+.column-two-card:last-child{
+    margin: 0;
+}
+
+.column-two-card h2{
+    padding-top: 50px;
+    font-size: 42px;
+    color: #60b0ed;
+    transition: all .3s linear;
+}
+
+.column-two-card h3{
+    color:#90c6f0;
+	font-family: "苹方";
+    margin-bottom: 5px;
+}
+
+.column-two-card p{
+    display: none;
+    padding: 7px;
+    color: #fff;
+	font-family: "苹方";
+}
+
+/* 卡片鼠标滑动效果 */
+.column-two-card:hover{
+    height: 200px;
+    background-color:#aad9fd;
+}
+
+.column-two-card:hover h2{
+    padding-top: 5px;
+    color: #fff;
+}
+.column-two-card:hover h3{
+       color: #fff;
+}
+.column-two-card:hover p{
+    display: block;
+}
+
+.index-video{
+    width: 80%;
+    margin-left: 120px;
+}
+
+.index-video video{
+    vertical-align: top;
+}
+
+.column-four-img{
+    float: left;
+    width: 33%;
+    height: 250px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.column-four-img img{
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    transition: transform .2s linear;
+}
+
+.column-four-img img:hover{
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+.column-four{
+    margin-bottom: 40px;
+}
+/* 强化当前导航高亮效果 */
+.nav li a.current-nav {
+    background-color: #aad9fd !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #header,
+body.dark-mode .nav {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode .nav li a {
+    color: #fff;
+}
+
+body.dark-mode .nav li a:hover,
+body.dark-mode .nav li a.current-nav {
+    background-color: #666;
+}
+
+body.dark-mode .column-two-card {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-mode .column-two-card h2,
+body.dark-mode .column-two-card h3,
+body.dark-mode .column-two-card p {
+    color: #fff;
+}
+
+body.dark-mode .column-title h2,
+body.dark-mode .column-title h3 {
+    color: #fff;
+}
+
+body.dark-mode .welcome-banner h1,
+body.dark-mode .welcome-banner p {
+    color: #fff;
+}
+
+body.dark-mode .column-text p {
+    color: #ddd;
+}
+
+/* Specific override for music page text in dark mode */
+body.dark-mode .video-top-right.column-text h2,
+body.dark-mode .video-top-right.column-text h3,
+body.dark-mode .video-top-right.column-text p {
+    color: #ffffff;
+}
+
+/* Toggle Button Style */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    display: block;
+    line-height: 60px; /* Match nav height */
+    font-size: 18px;
+    font-family: "苹方";
+}
+
+/* Light mode hover effect */
+#theme-toggle:hover {
+    background-color: #aad9fd;
+    color: #fff;
+}
+
+body.dark-mode #theme-toggle {
+    color: #fff;
+}
+
+body.dark-mode #theme-toggle:hover {
+    background-color: #666;
+}

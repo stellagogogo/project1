@@ -1,0 +1,17 @@
+{
+  "songs": [
+    { "title": "借口", "singer": "周杰伦", "src": "music/借口.mp3" },
+    { "title": "Falling U", "singer": "Pfuze", "src": "music/falling_u.mp3" },
+    { "title": "Lost In The Crowed", "singer": "Pfuze", "src": "music/lost_in_the_crowed.mp3" },
+    { "title": "t", "singer": "Unknown", "src": "music/t.mp3" },
+    { "title": "Yeah Yeah Yeah", "singer": "K-pop Stage", "src": "music/yeah_yeah_yeah.mp3" },
+    { "title": "会呼吸的痛", "singer": "梁静茹", "src": "music/会呼吸的痛.mp3" },
+    { "title": "沦陷", "singer": "王巨星", "src": "music/沦陷.mp3" },
+    { "title": "摩天轮的思念", "singer": "萧敬腾", "src": "music/摩天轮的思念.mp3" },
+    { "title": "晴", "singer": "周杰伦", "src": "music/晴.mp4" },
+    { "title": "失落沙洲", "singer": "徐佳莹", "src": "music/失落沙洲.mp3" },
+    { "title": "一样的月光", "singer": "齐豫", "src": "music/一样的月光.mp3" },
+    { "title": "转眼", "singer": "郑中基", "src": "music/转眼.mp3" },
+    { "title": "想回到那一天", "singer": "林志炫", "src": "music/想回到那一天.mp3" }
+  ]
+}
