@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/theme-toggle.js"></script>
+    <title>works</title>
+</head>
+
+<body>
+	<!-- Header Navigation -->
+    <div id="header">
+        <ul class="nav clearboth container">
+            <li><a href="index.html">homepage</a></li>
+            <li><a href="hometown.html">hometown</a></li>
+            <li><a href="works.html" class="current-nav">works</a></li>
+            <li><a href="music.html">music</a></li>
+            <li><a href="games.html">games</a></li>
+            <li><a href="message.html">message</a></li>
+            <li><button id="theme-toggle">Dark</button></li>
+        </ul>
+    </div>
+	<!-- Image Slideshow -->
+	<div class="lunbo">
+			<img id="lunbo_img" src="images/pic1.jpg" alt="Slideshow image 1">
+		</div>
+		<!-- Js代码 -->
+	<script>
+		var index = 1;
+		function lunbo(){
+	        index ++ ;
+	        //判断index是否大于4
+	        if(index > 3){
+	            index = 1;
+	        }
+	        //获取img对象
+			//var test = document.getElementsByClassName("lunbo");
+	        var img = document.getElementById("lunbo_img");
+	        img.src = "images/pic"+index+".jpg";
+	    }
+	    //2.定义定时器
+	    setInterval(lunbo,2500);
+	    /*切记定时器里调用lunbo方法不能加(),setInterval(lunbo,2000);如果加()会执行lunbo（）方法，而导致定时器没用。*/
+	</script>
+	<div class="container atlas-wrapper">
+		<div class="column-title">
+			<h3>Portfolio</h3>
+		</div>
+		<div id="works-gallery" class="phone-img-wrapper flexbox" aria-live="polite"></div>
+		 <!-- Video Section -->
+        <div class="column-title">
+            <h3>Video Collection</h3>
+        </div>
+        <div class="video-SPJ-card-wrapper flexbox">
+                    <div class="video-SPJ-card">
+                        <div class="video-SPJ-v">
+                            <video src="video/video-SPJ-v3.mp4" controls width="392" height="300"></video>
+                        </div>
+                       </div>
+                    <div class="video-SPJ-card">
+                        <div class="video-SPJ-v">
+                            <video src="video/video-SPJ-v2.mp4" controls width="392" height="300"></video>
+                        </div>
+                       </div>
+            		   <div class="video-SPJ-card">
+            		       <div class="video-SPJ-v">
+            		           <video src="video/video-SPJ-v1.mp4" controls width="392" height="300"></video>
+            		       </div>
+            		      </div>
+            			  <div class="video-SPJ-card">
+            			      <div class="video-SPJ-v">
+            			          <video src="video/video-SPJ-v4.mp4" controls width="392" height="300"></video>
+            			      </div>
+            			     </div>
+					<div class="video-SPJ-card">
+					    <div class="video-SPJ-v">
+					        <video src="video/video-SPJ-v5.mp4" controls width="392" height="300"></video>
+					    </div>
+					   </div>
+					<div class="video-SPJ-card">
+					    <div class="video-SPJ-v">
+					        <video src="video/video-SPJ-v6.mp4" controls width="392" height="300"></video>
+					    </div>
+					   </div>
+					   <div class="video-SPJ-card">
+					       <div class="video-SPJ-v">
+					           <video src="video/video-SPJ-v7.mp4" controls width="392" height="300"></video>
+					       </div>
+					      </div>
+						  <div class="video-SPJ-card">
+						      <div class="video-SPJ-v">
+						          <video src="video/video-SPJ-v8.mp4" controls width="392" height="300"></video>
+						      </div>
+						     </div>
+							 <div class="video-SPJ-card">
+							     <div class="video-SPJ-v">
+							         <video src="video/video-SPJ-v9.mp4" controls width="392" height="300"></video>
+							     </div>
+                    </div>
+                </div><!-- container 结束 -->
+            </div> <!-- award-bg / 主体结束 -->
+
+			<!-- Work Preview Modal -->
+			<div id="work-modal" class="work-modal" aria-hidden="true">
+				<div class="work-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="work-modal-title">
+					<button id="work-modal-close" class="work-modal__close" type="button" aria-label="Close work preview">×</button>
+					<img id="work-modal-image" class="work-modal__image" src="" alt="">
+					<div class="work-modal__meta">
+						<h4 id="work-modal-title"></h4>
+						<span id="work-modal-tag" class="work-modal__tag"></span>
+					</div>
+				</div>
+			</div>
+
+					<script src="js/main.js" defer></script>
+	<!-- Footer -->
+    <div class="copyright">
+      ©2025 Yayi Liu | Portfolio Website | Trinity College Dublin
+    </div>
+</body>
+
+</html>

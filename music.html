@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/theme-toggle.js"></script>
+    <title>music</title>
+</head>
+
+<body class="video-container">
+    <!-- Header Navigation -->
+    <div id="header">
+        <ul class="nav clearboth container">
+            <li><a href="index.html">homepage</a></li>
+            <li><a href="hometown.html">hometown</a></li>
+            <li><a href="works.html">works</a></li>
+            <li><a href="music.html" class="current-nav">music</a></li>
+            <li><a href="games.html">games</a></li>
+            <li><a href="message.html">message</a></li>
+            <li><button id="theme-toggle">Dark</button></li>
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Video Section -->
+        <div class="column-title">
+            <h3>MV</h3>
+        </div>
+        <div class="video-top flexbox">
+            <div class="video-top-left">
+                <video src="video/姗姗.mp4" controls autoplay muted loop class="video-full"></video>
+            </div>
+            <div class="video-top-right column-text">
+                <h2>Shanshan "- Jin Wenqi</h2>
+                <h3>Song Introduction</h3>
+                <p >This song "Shanshan" is sung by Jin Wenqi in written form to a friend named "Shanshan". It is full of emotions and is narrated in a warm and touching manner.</p>
+				<p >In this fast-paced era where we can't keep up, in this large and lonely city, some people are greeting themselves, asking if their sleep is good, and others are signing their positive energy on social media, feeling the sadness and "inability to let go" behind their liveliness and drunkenness
+The "Shanshan" in the song is clearly sung to the lonely, confused, hurried, strong disguised, and unwilling souls of this era. </p>
+            </div>
+           </div>
+       <!-- Playlist Section -->
+        <div class="column-title">
+            <h3>playlist</h3>
+        </div>
+        <div class="video-column-music">
+            <ul id="playlist" class="playlist-list" aria-live="polite"></ul>
+            <div class="playlist-player">
+                <p id="now-playing" class="now-playing">Select a song to begin.</p>
+                <audio id="audio-player" controls preload="metadata" class="audio-player"></audio>
+                <div class="playlist-progress">
+                    <span id="current-time" class="progress-time">0:00</span>
+                    <input type="range" id="song-progress" min="0" value="0" step="0.1" aria-label="Song progress" disabled>
+                    <span id="total-time" class="progress-time">0:00</span>
+                </div>
+            </div>
+        </div><!-- video-column-music -->
+    </div><!-- container -->
+
+    <!-- Footer -->        
+    <div class="copyright">
+      ©2025 Yayi Liu | Portfolio Website | Trinity College Dublin
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var playlistEl = document.getElementById('playlist');
+            var nowPlayingEl = document.getElementById('now-playing');
+            var audioPlayer = document.getElementById('audio-player');
+            var progressSlider = document.getElementById('song-progress');
+            var currentTimeEl = document.getElementById('current-time');
+            var totalTimeEl = document.getElementById('total-time');
+
+            if (!playlistEl || !nowPlayingEl || !audioPlayer || !progressSlider || !currentTimeEl || !totalTimeEl) {
+                return;
+            }
+
+            var resetProgress = function () {
+                progressSlider.value = 0;
+                progressSlider.max = 0;
+                progressSlider.disabled = true;
+                currentTimeEl.textContent = '0:00';
+                totalTimeEl.textContent = '0:00';
+            };
+
+            var formatTime = function (time) {
+                if (!isFinite(time)) {
+                    return '0:00';
+                }
+                var minutes = Math.floor(time / 60);
+                var seconds = Math.floor(time % 60);
+                return minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
+            };
+
+            resetProgress();
+
+            fetch('data/songs.json')
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Failed to load songs.json');
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    if (!Array.isArray(data.songs)) {
+                        return;
+                    }
+
+                    data.songs.forEach(function (song) {
+                        var item = document.createElement('li');
+                        var button = document.createElement('button');
+                        button.type = 'button';
+                        button.className = 'song-item';
+                        button.textContent = song.title + ' - ' + song.singer;
+                        button.addEventListener('click', function () {
+                            resetProgress();
+                            audioPlayer.pause();
+                            audioPlayer.currentTime = 0;
+                            audioPlayer.src = song.src;
+                            audioPlayer.load();
+                            var playPromise = audioPlayer.play();
+                            if (playPromise && typeof playPromise.catch === 'function') {
+                                playPromise.catch(function () {
+                                    // 浏览器阻止自动播放时保持静音等待用户手动播放
+                                });
+                            }
+                            nowPlayingEl.textContent = 'Now Playing: ' + song.title + ' - ' + song.singer;
+                        });
+                        item.appendChild(button);
+                        playlistEl.appendChild(item);
+                    });
+                })
+                .catch(function (error) {
+                    console.error(error);
+                    nowPlayingEl.textContent = 'Unable to load songs at the moment.';
+                });
+
+            audioPlayer.addEventListener('loadedmetadata', function () {
+                if (!isFinite(audioPlayer.duration)) {
+                    resetProgress();
+                    return;
+                }
+                progressSlider.disabled = false;
+                progressSlider.max = audioPlayer.duration;
+                progressSlider.value = 0;
+                currentTimeEl.textContent = '0:00';
+                totalTimeEl.textContent = formatTime(audioPlayer.duration);
+            });
+
+            audioPlayer.addEventListener('timeupdate', function () {
+                if (!isFinite(audioPlayer.duration)) {
+                    return;
+                }
+                progressSlider.value = audioPlayer.currentTime;
+                currentTimeEl.textContent = formatTime(audioPlayer.currentTime);
+            });
+
+            audioPlayer.addEventListener('ended', function () {
+                progressSlider.value = progressSlider.max;
+                currentTimeEl.textContent = totalTimeEl.textContent;
+            });
+
+            progressSlider.addEventListener('input', function () {
+                if (audioPlayer.duration && !progressSlider.disabled) {
+                    audioPlayer.currentTime = progressSlider.value;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

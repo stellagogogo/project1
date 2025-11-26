@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/theme-toggle.js"></script>
+    <title>message</title>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <div id="header">
+        <ul class="nav clearboth container">
+            <li><a href="index.html">homepage</a></li>
+            <li><a href="hometown.html">hometown</a></li>
+            <li><a href="works.html">works</a></li>
+            <li><a href="music.html">music</a></li>
+            <li><a href="games.html">games</a></li>
+            <li><a href="message.html" class="current-nav">message</a></li>
+            <li><button id="theme-toggle">Dark</button></li>
+        </ul>
+    </div>
+    <div class="contactus-banner clear"></div>
+    <div class="container">
+        <div class="column-title">
+            <h3>contact me</h3>
+        </div>
+        <!-- Contact Information Section -->
+        <ul class="email-box">
+            <li>email：liuyayi12252023@163.com</li>
+            <li>telephone：0892048503</li>
+            <li>address：Beckett House，125 Summerhill，Dublin 1</li>
+            <li><a href="liuy52@tcd.ie">Click here to send email</a></li>
+        </ul>
+        <div class="column-title">
+            <h3>Leave your thoughts</h3>
+        </div>
+        <!-- Message Form Section -->
+        <form action="message.html" class="leave-message" method="get">
+            <div class="userbar flexbox">
+                <div class="username"><label for="username">name：</label><input type="text" id="username"></div>
+                <div class="userphone"><label for="useremail">email：</label><input type="email" id="useremail"></div>
+            </div>
+            <div class="mesagebar">
+                <label for="usermessage">message：</label><textarea name="usermessage" id="usermessage"></textarea>
+            </div>
+            <div class="submitbar">
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+            </div>
+        </form>
+    </div>
+    <div class="copyright">
+        ©2025 Yayi Liu | Portfolio Website | Trinity College Dublin
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.querySelector('.leave-message');
+            if (!form) {
+                return;
+            }
+            var fieldIds = ['username', 'useremail', 'usermessage'];
+            fieldIds.forEach(function (id) {
+                var el = document.getElementById(id);
+                if (!el) {
+                    return;
+                }
+                var key = 'messageForm:' + id;
+                var saved = localStorage.getItem(key);
+                if (saved) {
+                    el.value = saved;
+                }
+                el.addEventListener('input', function () {
+                    localStorage.setItem(key, el.value);
+                });
+            });
+            form.addEventListener('reset', function () {
+                fieldIds.forEach(function (id) {
+                    localStorage.removeItem('messageForm:' + id);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

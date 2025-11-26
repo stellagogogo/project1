@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="../index/js/index.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <style>
+        .welcome-banner {
+            text-align: center;
+            margin: 40px auto 30px;
+        }
+
+        .welcome-banner h1 {
+            margin-bottom: 10px;
+        }
+
+        .welcome-banner p {
+            font-size: 18px;
+        }
+    </style>
+    <title>Welcome to my Portfolio</title>
+</head>
+
+<body>
+    <!-- Navigation section -->
+    <div id="header">
+        <ul class="nav clearboth container">
+            <li><a href="index.html" class="current-nav">homepage</a></li>
+            <li><a href="hometown.html">hometown</a></li>
+            <li><a href="works.html">works</a></li>
+            <li><a href="music.html">music</a></li>
+            <li><a href="games.html">games</a></li>
+            <li><a href="message.html">messages</a></li>
+            <li><button id="theme-toggle">Dark</button></li>
+        </ul>
+    </div>
+    <div class="welcome-banner container">
+        <h1 id="time-greeting"></h1>
+        <p id="welcome-message"></p>
+    </div>
+    <div class="banner-wrapper clear"></div>
+    <div class="container">
+        <!-- Personal Info Cards -->
+        <div class="column-two clearboth">
+            <div class="column-title">
+                <h2>LIU YAYI PORTFOLIO</h2>
+            </div>
+            <div class="column-two-card left">
+                <h2>01</h2>
+                <h3>Name</h3>
+                <p>Liu Yayi</p>
+            </div>
+            <div class="column-two-card left">
+                <h2>02</h2>
+                <h3>school</h3>
+                <p>Trinity College Dublin</p>
+            </div>
+            <div class="column-two-card left">
+                <h2>03</h2>
+                <h3>phone number</h3>
+                <p>0892048503</p>
+            </div>
+            <div class="column-two-card left">
+                <h2>04</h2>
+                <h3>instagram</h3>
+                <p>goooose37</p>
+            </div>
+            <div class="column-two-card left">
+                <h2>05</h2>
+                <h3>WeChat</h3>
+                <p>_SayHiHi</p>
+            </div>
+            <div class="column-two-card left">
+                <h2>06</h2>
+                <h3>email</h3>
+                <p>liuy52@tcd.ie</p>
+            </div>
+        </div>
+        <div class="column-three clear">
+            <div class="column-title">
+                <h2>This is me</h2>
+            </div>
+            <div class="column-four-content clearboth">
+                    <img src="images/背景5.png" alt="Portfolio background">
+                </div>
+         <!-- About me section -->
+        <div class="column-four">
+            <div class="column-title">
+                <h2>about me</h2>
+            </div>
+            <div class="column-one-content"> 
+                <div class="column-one-text column-text">
+                    <p>Be an all-around creator</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="visit-counter" aria-live="polite">
+        <p id="visit-counter-text">You have visited this website 0 times.</p>
+    </div>
+    <div class="copyright">
+        ©2025 Yayi Liu | Portfolio Website | Trinity College Dublin
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var counterEl = document.getElementById('visit-counter-text');
+            if (!counterEl) {
+                return;
+            }
+            var visitKey = 'siteVisitCount';
+            var visits = Number(localStorage.getItem(visitKey) || 0) + 1;
+            localStorage.setItem(visitKey, visits);
+            counterEl.textContent = 'You have visited this website ' + visits + ' times.';
+        });
+    </script>
+</body>
+
+</html>

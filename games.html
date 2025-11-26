@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/theme-toggle.js"></script>
+    <title>games</title>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <div id="header">
+        <ul class="nav clearboth container">
+            <li><a href="index.html">homepage</a></li>
+            <li><a href="hometown.html">hometown</a></li>
+            <li><a href="works.html">works</a></li>
+            <li><a href="music.html">music</a></li>
+            <li><a href="games.html" class="current-nav">games</a></li>
+            <li><a href="message.html">message</a></li>
+            <li><button id="theme-toggle">Dark</button></li>
+        </ul>
+    </div>
+    <div class="banner2-wrapper clear"></div>
+
+	<div id="award-bg">
+     <div class="container">
+
+        <div class="column-three clear">
+            <div class="column-title">
+                <h2>games</h2>
+            </div>
+            <!-- Game Video Section -->
+            <div class="index-video">
+                <video src="video/游戏.mp4" controls class="video-full"></video>
+            </div>
+            <div class="snowball-panel" aria-live="polite">
+                <button type="button" id="snowball-btn" class="snowball-btn">Throw a snowball</button>
+                <p class="snowball-counter">You clicked the snowball <span id="snowball-count">0</span> times.</p>
+            </div>
+        </div>
+        <div class="column-four">
+            <div class="column-title">
+                <h2>screenshot</h2>
+            </div>
+
+            <!-- Game Screenshots Gallery -->
+            <div class="column-four-content clearboth">
+                <div class="column-four-img">
+                <img src="images/3.jpg" alt="">
+                </div>
+                <div class="column-four-img">
+                <img src="images/1.jpg" alt="">
+                </div>
+                <div class="column-four-img">
+                <img src="images/2.jpg" alt="">
+                </div>
+                <div class="column-four-img">
+                <img src="images/4.jpg" alt="">
+                </div>
+                <div class="column-four-img">
+                <img src="images/5.jpg" alt="">
+                </div>
+                <div class="column-four-img">
+                <img src="images/6.jpg" alt="">
+                </div>
+				<div class="column-four-img">
+				<img src="images/7.jpg" alt="">
+				</div>
+				<div class="column-four-img">
+				<img src="images/8.jpg" alt="">
+				</div>
+				<div class="column-four-img">
+				<img src="images/9.jpg" alt="">
+				</div>
+				<div class="column-four-img">
+				<img src="images/10.jpg" alt="">
+				</div>
+				<div class="column-four-img">
+				<img src="images/11.jpg" alt="">
+				</div>
+				<div class="column-four-img">
+				<img src="images/12.jpg" alt="">
+				</div> <!-- column-four-content -->
+            </div> <!-- column-four -->
+        </div> <!-- container -->
+    </div> <!-- award-bg -->
+
+    <!-- Footer -->
+    <div class="copyright">
+        ©2025 Yayi Liu | Portfolio Website | Trinity College Dublin
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.getElementById('snowball-btn');
+            var countEl = document.getElementById('snowball-count');
+            if (!button || !countEl) {
+                return;
+            }
+            var key = 'snowballClickCount';
+            var count = Number(localStorage.getItem(key) || 0);
+            countEl.textContent = count;
+            button.addEventListener('click', function () {
+                count += 1;
+                localStorage.setItem(key, count);
+                countEl.textContent = count;
+            });
+        });
+    </script>
+</body>
+</html>
